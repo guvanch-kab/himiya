@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Sidebar</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/admin_main.css">
+<link rel="stylesheet" href="fontawesome/css/all.min.css">
+<script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        /* Genel Stiller */
+
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+     <span style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 22px;" >
+        ADMINISTRATOR</span>  
+    </div>
+
+    <div class="container-fluid space_cols">
+        <div class="row">
+
+            <div class="col-md-3 col-lg-2 sidebar" style="padding-left: 0px; padding-right: 0px;">
+<div class="col" style="display: flex; padding: 10px 0;  justify-content: center; background-color:#697683;">
+    ADMIN
+</div> 
+<hr style="background-color:#697683;">
+                <div class="menu-item" data-file="call_pages/nazary_data.php">
+                    <i class="fas fa-home"></i>
+                    <!-- <a href="#" class="call_pages" id="call_pages/nazary_data.php"> -->
+                         <span>Nazary maglumatlar</span> 
+                   
+                </div>
+                <div class="menu-item" data-file="call_pages/amaly_ishler.php">
+                    <i class="fas fa-user"></i>
+                    <span>Amaly işler</span>
+                </div>
+                <div class="menu-item" data-file="pages/tejribe_ishler.php">
+                    <i class="fas fa-envelope"></i>
+                    <span>Tejribe işleri</span>
+                </div>
+                <div class="menu-item" data-file="pages/meseleler.php">
+                    <i class="fas fa-cog"></i>
+                    <span>Meseleler ýumuşlar</span>
+                </div>
+                <div class="menu-item" data-file="call_pages/question_answer/add_questions.html">
+                    <i class="fas fa-sign-out-alt"></i>
+                <!-- <a href="#" class="call_pages" id="call_pages/question_answer/add_questions.html"> -->
+                    <span>Test taýarla</span> </a>
+                </div>
+
+                <div class="menu-item" data-file="call_pages/question_answer/test_results.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                     <span>Test netijeleri</span> 
+                </div>
+
+                <div class="menu-item-helper">
+                    <a href="javascript:void(0);" class="help-link">
+                        <i class="fas fa-robot"></i> <!-- AI ikonu -->
+                        <span>AI Assistant</span>
+                    </a>
+                    <a href="javascript:void(0);" class="help-link">
+                        <i class="fas fa-question-circle"></i> <!-- Yardım ikonu -->
+                        <span>Help</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- İçerik -->
+            <div class="col-md-9 col-lg-10 main_place content ">
+
+                <p></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    /*
+     $(function () {
+ $(document).on('click', '.call_pages', function (event) {
+    event.preventDefault();
+
+    var pageUrl = $(this).attr('id');
+    alert(pageUrl)
+    $(".main_place").empty()
+    $(".main_place").load(pageUrl+'?' + new Date().getTime());
+ })
+});
+*/
+</script>
+<script>
+    
+$(function () {
+    $(".menu-item").on("click", function () {
+        var page = $(this).data("file");
+
+        if (page) {
+           $(".main_place").empty()
+            $(".main_place").load(page, function () {
+                console.log("Yeni sayfa yüklendi.");
+            });
+        }
+
+        $(".menu-item").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    // Dinamik olarak eklenen butonlara olay bağlama
+    $(document).on("click", ".btn-danger.remove-option", function () {
+        $(this).closest('.option-group').remove();
+    });
+
+    $(document).on("click", "#add-option", function () {
+        // Yeni Jogap ekleme kodu
+        console.log("Yeni Jogap eklendi.");
+    });
+});
+
+ 
+ </script>

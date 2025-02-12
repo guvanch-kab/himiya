@@ -1,0 +1,94 @@
+<style>
+    #ai-modal {
+    width: 700px; /* Önceki genişlikten daha büyük */
+    height: 380px; /* Daha büyük yükseklik */
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px; /* Daha geniş padding */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 8px;
+}
+#ai-question {
+    width: 100%;
+    height: 120px; /* Daha geniş input */
+    padding: 12px;
+}
+
+</style>
+<!-- AI Assistant Modal -->
+<div id="ai-modal"
+    style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); z-index: 1000; border-radius: 8px;">
+    <textarea id="ai-question" placeholder="Soragynyzy bu yere yazyn..."
+        style="width: 100%; height: 100px; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+    <button id="ai-submit"
+        style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Send</button>
+    <div id="ai-response"
+        style="margin-top: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px;"></div>
+    <button id="ai-close"
+        style="margin-top: 10px; padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+</div>
+<div id="ai-overlay"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;">
+</div>
+
+<script>
+    $(function () {
+        // Open the AI Assistant modal when the link is clicked
+        $("#ai-assistant-link").on("click", function () {
+            $("#ai-modal").show();
+            $("#ai-overlay").show();
+        });
+
+        // Handle the "Submit" button click
+        $("#ai-submit").on("click", function () {
+            var userQuestion = $("#ai-question").val().trim();
+            console.log("User Question:", userQuestion);
+
+            if (userQuestion) {
+                // Show loading indicator
+                $("#ai-response").html('<div style="text-align: center;"><img src="includes/images/loading.gif" alt="Loading..." style="width: 45px; height: 45px;"></div>');
+
+                // Send the question to the backend
+                $.ajax({
+                    url: "includes/ai_assistant.php", // Backend file
+                    type: "POST",
+                    data: { question: userQuestion },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.status === "success") {
+                            // Display the AI's response
+                            $("#ai-response").html("<strong>AI Response:</strong> " + response.response);
+                        } else {
+                            // Display an error message
+                            $("#ai-response").html("<strong>Error:</strong> " + response.message);
+                        }
+                    },
+                    error: function () {
+                        // Display an error message if the request fails
+                        $("#ai-response").html("<strong>Error:</strong> An error occurred while communicating with the AI.");
+                    }
+                });
+            } else {
+                // Display a warning if the question is empty
+                $("#ai-response").html("<strong>Warning:</strong> Please enter a question.");
+            }
+        });
+
+        // Close the modal when the "Close" button is clicked
+        $("#ai-close").on("click", function () {
+            $("#ai-modal").hide();
+            $("#ai-overlay").hide();
+        });
+
+        // Close the modal when clicking outside of it
+        $("#ai-overlay").on("click", function () {
+            $("#ai-modal").hide();
+            $("#ai-overlay").hide();
+        });
+    });
+</script>

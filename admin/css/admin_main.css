@@ -1,0 +1,117 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Banner ve Header Stilleri */
+        .banner {
+            height: 60px;
+            background-color: #697683;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .colors {
+            height: 30px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Sidebar Stilleri */
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40;
+            color: #fff;
+            padding-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .menu-item {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 16px;
+            transition: background-color 0.5s ease, color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar .menu-item:hover {
+            background-color: #697683;
+            color: #00f000;
+        }
+
+        .sidebar .menu-item i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar .menu-item:hover i {
+            transform: scale(1.1);
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        p {
+            color: #495057;
+        }
+
+        /* Responsive Sidebar Genişliği */
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+
+            .content {
+                margin-top: 80px;
+            }
+        }
+
+        .menu-item-helper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* İkonlar arasındaki mesafeyi kısalttık */
+            padding: 10px 0; /* Üstten ve alttan boşluk ekledik */
+            background-color: #fa6647;
+            margin-top:5px;
+        }
+        
+        .menu-item-helper .help-link {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            gap: 10px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 16px;                    
+        }
+        
+        .menu-item-helper .help-link:hover {
+            background-color: #fff; /* Hover efekti */
+            color: #25e320; /* Hover'da metin rengi */
+        }
+        
+        .menu-item-helper .help-link i {
+            font-size: 18px;
+        }

@@ -1,0 +1,119 @@
+.quiz-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+
+    .progress-bar {
+        width: 100%;
+        background: #eee;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        height: 10px;
+    }
+
+    #progress-fill {
+        height: 10px;
+        background: #4caf50;
+        transition: width 0.3s;
+    }
+
+    .question-text {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .question-indicator {
+        font-size: 1em;
+        color: #555;
+        margin-bottom: 10px;
+        text-align: right;
+    }
+
+    .options-container {
+        margin-bottom: 20px;
+        background-color: #fff;
+    }
+
+    .options-container label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1em;
+        cursor: pointer;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .options-container label:hover {
+        background-color: #f1f1f1;
+        border-color: #bbb;
+    }
+
+    .radio_answers {
+        transform: scale(1.5);
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .next-button {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .next-button:disabled {
+        background-color: #bbb;
+        cursor: not-allowed;
+    }
+
+    .next-button:not(:disabled):hover {
+        background-color: #0056b3;
+    }
+    .bg-success {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+.bg-danger {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+.result-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+}
+
+.feedback-icon {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.bg-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.bg-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+

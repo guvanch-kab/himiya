@@ -1,0 +1,155 @@
+.main_place {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* main_place*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.banner {
+    /* height: 60px; */
+    background-color: #677c92;
+    color: #fff;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.colors {
+    height: 30px;
+    background-color: #d8dde2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sidebar Stilleri */
+.sidebar {
+    /* height: 100vh; */
+    background-color: #677c92;
+    color: #fff;
+    padding-top: 10px;
+    transition: all 0.3s ease;
+    /* width: 250px; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  */
+    /* Menü öğeleri üstte hizalanacak */
+}
+
+.sidebar .menu-item {
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    position: relative; /* Pozisyon ekliyoruz ki alt çizgi position absolute olsun */
+}
+
+.sidebar .menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #e9ecef; /* Çizginin rengi */
+    transition: width 0.3s ease; /* Genişlik geçişi */
+}
+
+.sidebar .menu-item:hover {
+    color: #e9ecef;
+    background-color: #2f4d57;
+}
+
+.sidebar .menu-item:hover::after {
+    width: 100%; /* Hover'da çizgi tam genişliği kaplayacak */
+}
+
+/* Yardımcı İkonlar Stilleri */
+.menu-item-helper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* İkonlar arasındaki mesafeyi kısalttık */
+    padding: 10px 0; /* Üstten ve alttan boşluk ekledik */
+    background-color: #2f4d57;
+    margin-top:5px;
+}
+
+.menu-item-helper .help-link {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 10px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px;
+    border-radius:4px;
+   
+}
+
+.menu-item-helper .help-link:hover {
+    background-color: #2f4d57; /* Hover efekti */
+    color: #25e320; /* Hover'da metin rengi */
+}
+
+.menu-item-helper .help-link i {
+    font-size: 18px;
+}
+
+/* İçerik Alanı */
+.content {
+    padding: 20px;
+}
+
+h1 {
+    color: #343a40;
+}
+
+p {
+    color: #495057;
+}
+
+/* Responsive Sidebar Genişliği */
+@media (max-width: 768px) {
+    .sidebar {
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .content {
+        margin-top: 80px;
+    }
+}
+
+.space_cols .row {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Kolonların taşmasını engeller */
+}
+.sidebar {
+    margin-right: 10px;
+    /* flex: 0 0 20%;/ */
+}
+.main_place {
+    /* flex: 1; */
+    /* İçeriğin geri kalan kısmını kapsar */
+}
