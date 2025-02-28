@@ -12,7 +12,6 @@ if (empty($bolumText)) {
     exit;
 }
 
-// Hazırlanmış ifade kullanarak sorgu hazırlıyoruz
 $stmt = $connect->prepare("SELECT * FROM questions WHERE caryek = ? ORDER BY RAND()");
 $stmt->bind_param("s", $bolumText);
 $stmt->execute();
@@ -20,11 +19,23 @@ $result = $stmt->get_result();
 
 $questions = [];
 while ($row = $result->fetch_assoc()) {
+    // 'question_img' alanını kontrol et ve doğru yolu ekle
+    $question_img = !empty($row["question_img"]) ? json_decode($row["question_img"], true) : [];
+
+    if (!empty($question_img) && is_array($question_img)) {
+        foreach ($question_img as &$img) {
+            $img = "admin/call_pages/question_answer/" . $img; // Resim yolu ekleniyor
+        }
+    } else {
+        $question_img = []; // Boş bir dizi döndürülüyor
+    }
+
     $question = [
         "id" => $row["id"],
         "question" => $row["question_text"],
         "correct_answer" => $row["correct_answer"],
-        "options" => json_decode($row["options"])
+        "options" => json_decode($row["options"]), // JSON formatında seçenekler
+        "question_img" => $question_img // Güncellenmiş resim yollarını kullanıyoruz
     ];
     $questions[] = $question;
 }
@@ -45,4 +56,5 @@ if (empty($questions)) {
 
 $stmt->close();
 $connect->close();
+
 ?>

@@ -18,279 +18,267 @@
     .option-group button {
         white-space: nowrap;
     }
-    .cont{height:auto; padding:0 10px; border-left:22px solid #47e027; height:25px; margin-bottom: 25px;  }
+
+    .cont {
+        height: auto;
+        padding: 0 10px;
+        border-left: 22px solid #47e027;
+        height: 25px;
+        margin-bottom: 25px;
+    }
+
     .custom-btn {
-        min-width: 120px;     
-        font-size: 14px;      
-        white-space: nowrap;       
-        text-align: center;        
+        min-width: 120px;
+        font-size: 14px;
+        white-space: nowrap;
+        text-align: center;
         margin: 0 6px;
     }
 </style>
 </head>
 
-    <div class="container my-4">
-        <div class="row">
-            <div class="col-md-10 cont">
-                <h4 style="border-bottom: 1px solid #47e027; padding: 2px 0;">Test taýarla</h4>
-            </div>
-            
-            <div class="col-md-2" style="text-align: right;">
-                <button type="submit" class="btn btn-outline-danger order_questions">soraglary tertiple</button>
-            </div>
-           
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-10 cont">
+            <h4 style="border-bottom: 1px solid #47e027; padding: 2px 0;">Test taýarla</h4>
         </div>
 
-        <form id="question-form">
-
-
-            <div class="row" style="margin-left:0px; margin-right:0px;  background-color: #dbeaea;">
-                <div class="col-md-8" style=" padding-bottom: 10px; margin-top: 10px;">                  
-                    <div class="d-flex align-items-center;">                       
-                        <input type="text" id="bolum_input" class="form-control " placeholder="çärýek goş"
-                            style="border:1px solid #5e5eff;">                      
-                        <button id="add_caryek" class="btn btn-success  custom-btn">Çärýek +</button>                      
-                        <button id="delete_caryek" class="btn btn-danger custom-btn">Çärýek poz</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-mb-3">
-                <label for="exampleFormControlSelect1">Çärýekler</label>
-                <select class="form-control" id="bolum_caryek" name="bolum_caryek" style="margin-bottom:12px;font-size:14px" required>
-                        <!-- <option selected disabled value="">Çarýek sayla</option> -->
-                   
-
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="question_text" class="form-label">Soragy ýazyn..</label>
-                <input type="text" class="form-control subscript-input" id="question_text" name="question_text" required>
-            </div>
-
-            <div id="options-container">
-                <div class="option-group">
-                    <label for="option_1" class="form-label">Jogap 1</label>
-                    <input type="text" class="form-control" id="option_1" name="options[]" required>
-                    <button type="button" class="btn btn-danger remove-option">Poz</button>
-                </div>
-                <div class="option-group">
-                    <label for="option_2" class="form-label">Jogap 2</label>
-                    <input type="text" class="form-control" id="option_2" name="options[]" required>
-                    <button type="button" class="btn btn-danger remove-option">Poz</button>
-                </div>
-            </div>
-
-            <button type="button" class="btn btn-success mb-3 jogapyaz" id="add-option">Jogap +</button>
-
-            <div class="mb-3">
-                <label for="correct_answer" class="form-label">Dogry jogaby (1-5 arasynda) saýlaň</label>
-                <input type="number" class="form-control" id="correct_answer" name="correct_answer" min="1" max="5"
-                    required>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Sorag goş</button>
-        </form>
-
-        <div id="response-message" style="margin-top: 20px;"></div>
-      
-<!---------------------- UPDATE QUESTIONS--------------------------------------->
-
-        <div id="" style="margin-top: 20px;">
-         
-            <div class="row" id="update_quest_answer">
-               
-                <div class="col-md-12" id="update_questions">
-
-    <form id="updateForm">
-        <label for="question_select">Sorag saýla:</label>
-        <select id="question_select" class="form-control">
-            <option value="">Soragy gör</option>
-            <!-- Sorular buraya AJAX ile yüklenecek -->
-        </select><br><br>
-    
-        <label for="question_text">Sorag:</label>
-        <input type="text" id="question_text_data" class="form-control" name="question_text_data"><br><br>
-    
-        <label for="options">Jogaplar (, lar bilen bölünen):</label>
-        <input type="text" id="options" class="form-control" name="options"><br><br>
-    
-        <label for="correct_answer">Correct Answer (Option Number):</label>
-        <input type="number" class="form-control" id="correct_answer_data" name="correct_answer_data" min="1"><br><br>
-    
-        <button class="btn btn-dark" type="submit">Üýtget</button>
-    </form>   
-
-                </div>
-            </div>
+        <div class="col-md-2" style="text-align: right;">
+            <button type="submit" class="btn btn-outline-danger order_questions">soraglary tertiple</button>
         </div>
 
     </div>
 
+    <form id="question-form">
+
+        <div class="row" style="margin-left:0px; margin-right:0px;  background-color: #dbeaea;">
+            <div class="col-md-8" style=" padding-bottom: 10px; margin-top: 10px;">
+                <div class="d-flex align-items-center;">
+                    <input type="text" id="bolum_input" class="form-control " placeholder="çärýek goş"
+                        style="border:1px solid #5e5eff;">
+                    <button id="add_caryek" class="btn btn-success  custom-btn">Çärýek +</button>
+                    <button id="delete_caryek" class="btn btn-danger custom-btn">Çärýek poz</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-mb-3">
+            <label for="exampleFormControlSelect1">Çärýekler</label>
+            <select class="form-control" id="bolum_caryek" name="bolum_caryek" style="margin-bottom:12px;font-size:14px"
+                required>
+                <!-- <option selected disabled value="">Çarýek sayla</option> -->
+            </select>
+        </div>
+
+        <div class="mb-3 d-flex gap-">  
+            <label class="form-label" style="padding-right: 5px;"> Sorag  </label>
+               
+            <input style="width:70%" type="text" class="form-control subscript-input" id="question_text" name="question_text" required>
+          <label class="fomr-label" style="padding:0 10px;">  Surat </label>
+            <input style="width: 30%;" type="file" class="form-control subscript-input" id="question_img" name="question_img" required>
+        </div>
+        <div id="options-container">
+            <div class="option-group">
+                <label for="option_1" class="form-label">Jogap 1</label>
+                <input type="file" class="form-control" id="option_1" name="options[]" required>
+                <button type="button" class="btn btn-danger remove-option">Poz</button>
+            </div>
+            <div class="option-group">
+                <label for="option_2" class="form-label">Jogap 2</label>
+                <input type="file" class="form-control" id="option_2" name="options[]" required>
+                <button type="button" class="btn btn-danger remove-option">Poz</button>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-success mb-3 jogapyaz" id="add-option">Jogap goş +</button>
+
+        <div class="mb-3">
+            <label for="correct_answer" class="form-label">Dogry jogaby (1-25 arasynda) saýlaň</label>
+            <input type="number" class="form-control" id="correct_answer" name="correct_answer" min="1" max="5"
+                required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sorag goş</button>
+    </form>
+
+    <div id="response-message" style="margin-top: 20px;"></div>
+
+    <!---------------------- UPDATE QUESTIONS--------------------------------------->
+
+    <div id="" style="margin-top: 20px;">
+
+        <div class="row" id="update_quest_answer">
+
+            <div class="col-md-12" id="update_questions">
+
+                <form id="updateForm">
+                    <label for="question_select">Sorag saýla:</label>
+                    <select id="question_select" class="form-control">
+                        <option value="">Soragy gör</option>
+                        <!-- Sorular buraya AJAX ile yüklenecek -->
+                    </select><br><br>
+
+                    <label for="question_text">Sorag:</label>
+                    <input type="text" id="question_text_data" class="form-control" name="question_text_data"><br><br>
+
+                    <label for="options">Jogaplar (, lar bilen bölünen):</label>
+                    <input type="text" id="options" class="form-control" name="options"><br><br>
+
+                    <label for="correct_answer">Correct Answer (Option Number):</label>
+                    <input type="number" class="form-control" id="correct_answer_data" name="correct_answer_data"
+                        min="1"><br><br>
+
+                    <button class="btn btn-dark" type="submit">Üýtget</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<script>
-    function convertSubscript(input) {
-        let subscriptMap = {
-            "0": "₀", "1": "₁", "2": "₂", "3": "₃", "4": "₄",
-            "5": "₅", "6": "₆", "7": "₇", "8": "₈", "9": "₉"
-        };
-    
-        input.value = input.value.replace(/[0-9]/g, function(match) {
-            return subscriptMap[match];
-        });
-    }
-    
-    document.addEventListener("DOMContentLoaded", function() {
-        let inputs = document.querySelectorAll(".subscript-input");
-        inputs.forEach(input => {
-            input.addEventListener("input", function() {
-                convertSubscript(input);
-            });
-        });
-    });
-    </script>
-    
+</div>
+
+
+
 
 
 <script>
-    $("#bolum_caryek").change(function(){
-      
-var aa=$("#bolum_caryek").text();
-var caryek = $("#bolum_caryek option:selected").data('name');       
-    })
+    // $("#bolum_caryek").change(function () {
+
+    //     var aa = $("#bolum_caryek").text();
+    //     var caryek = $("#bolum_caryek option:selected").data('name');
+    // })
 </script>
 
-    <script>
-       $(function () {
-    let optionCount = 2; // Başlangıç seçeneği sayısı
+<script>
+    $(function () {
+        let optionCount = 2; // Başlangıç seçeneği sayısı
 
-    $(document).off('click', '#add-option').on('click', '#add-option', function () {
-        if (optionCount < 15) {
-            optionCount++;
-            const newOption = `
+        $(document).off('click', '#add-option').on('click', '#add-option', function () {
+            if (optionCount < 15) {
+                optionCount++;
+                const newOption = `
                 <div class="option-group">
                     <label for="option_${optionCount}" class="form-label">Jogap ${optionCount}</label>
-                    <input type="text" class="form-control" id="option_${optionCount}" name="options[]" required>
+                    <input type="file" class="form-control" id="option_${optionCount}" name="options[]" required>
                     <button type="button" class="btn btn-danger remove-option">Poz</button>
                 </div>`;
-            $('#options-container').append(newOption);
-        }
-    });
+                $('#options-container').append(newOption);
+            }
+        });
 
-    $(document).off('click', '.remove-option').on('click', '.remove-option', function () {
-        if (optionCount > 2) {
-            $(this).closest('.option-group').remove();
-            optionCount--;
-        }
-    });
+        $(document).off('click', '.remove-option').on('click', '.remove-option', function () {
+            if (optionCount > 2) {
+                $(this).closest('.option-group').remove();
+                optionCount--;
+            }
+        });
 
         $('#question-form').on('submit', function (e) {
-                e.preventDefault();
+            e.preventDefault();
 
-var formData= new FormData(this);
-var caryekler=$("#bolum_caryek option:selected").data('name');      
- formData.append('caryekler', caryekler);
-                $.ajax({
-                    url: 'call_pages/question_answer/submit_question.php',
-                    type: 'POST',
-                   // data: $(this).serialize(),
-                   data: formData,
-                   contentType: false, // Bu ayar, form verisinin doğru şekilde gönderilmesini sağlar
-                   processData: false, // Form verilerinin işlenmesini engeller
-           
-                    success: function (response) {
-                        $('#response-message').html(
-                            `<div class="alert alert-success">${response}</div>`
-                        );
-                        $('#question-form')[0].reset();
-                        $('#options-container').html(''); // Seçenekleri temizle
-                        optionCount = 2;
-                        // setTimeout(() => window.location.reload(), 6000); // Sayfayı yenile
-                    },
-                    
-                    error: function () {
-                        $('#response-message').html(
-                            '<div class="alert alert-danger">Bir hata oluştu. Lütfen tekrar deneyin.</div>'
-                        );
-                    }
-                });
+            var formData = new FormData(this);
+            var caryekler = $("#bolum_caryek option:selected").data('name');
+            formData.append('caryekler', caryekler);
+            $.ajax({
+                url: 'call_pages/question_answer/submit_question.php',
+                type: 'POST',
+                // data: $(this).serialize(),
+                data: formData,
+                contentType: false, // Bu ayar, form verisinin doğru şekilde gönderilmesini sağlar
+                processData: false, // Form verilerinin işlenmesini engeller
+
+                success: function (response) {
+                    $('#response-message').html(
+                        `<div class="alert alert-success">${response}</div>`
+                    );
+                    $('#question-form')[0].reset();
+                    $('#options-container').html(''); // Seçenekleri temizle
+                    optionCount = 2;
+                    // setTimeout(() => window.location.reload(), 6000); // Sayfayı yenile
+                },
+
+                error: function () {
+                    $('#response-message').html(
+                        '<div class="alert alert-danger">Bir hata oluştu. Lütfen tekrar deneyin.</div>'
+                    );
+                }
             });
-});
-    </script>
+        });
+    });
+</script>
 
-    <script>
-    $(function(){
-        
+<script>
+    $(function () {
+
         $("#update_quest_answer").hide();
         $(".order_questions").on("click", function () {
-        $("#question-form, .order_questions").hide()
-        $("#update_quest_answer").show();
+            $("#question-form, .order_questions").hide()
+            $("#update_quest_answer").show();
 
 
             $.ajax({
                 url: 'call_pages/question_answer/get_questions.php', // PHP dosyasından soruları çekecek
                 method: 'GET',
                 success: function (data) {
-                $("#question_select").html('<option value="">Soragy sayla</option>' + data);
-        },
-        error: function () {
-            alert("Bir hata oluştu. Lütfen tekrar deneyin.");
-        }
+                    $("#question_select").html('<option value="">Soragy sayla</option>' + data);
+                },
+                error: function () {
+                    alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+                }
             });
         })
 
-        
+
 
         $("#question_select").on("change", function () {
-        const questionId = $(this).val();
+            const questionId = $(this).val();
 
-        if (questionId) {
-         
-            $.ajax({
-                url: 'call_pages/question_answer/get_question_details.php', // Soru detaylarını çeken PHP dosyası
-                method: 'GET',
-                data: { id: questionId },
-                success: function (data) {
-                    const question = JSON.parse(data);
+            if (questionId) {
 
-                    // Form alanlarını doldur
-                    $("#question_text_data").val(question.question_text);
-                    $("#options").val(question.options.join(", "));
-                    $("#correct_answer_data").val(question.correct_answer);
-                },
-                error: function () {
-                    alert("An error occurred while fetching question details.");
-                }
-            });
-        } else {
-            // Eğer hiçbir soru seçilmediyse formu temizle
-           // $("#updateForm")[0].reset();
-        }
-    });
+                $.ajax({
+                    url: 'call_pages/question_answer/get_question_details.php', // Soru detaylarını çeken PHP dosyası
+                    method: 'GET',
+                    data: { id: questionId },
+                    success: function (data) {
+                        const question = JSON.parse(data);
 
-    // Formu gönderme işlemi
-    $("#updateForm").submit(function (e) {
-        e.preventDefault();
-
-        const questionData = {
-            id: $("#question_select").val(),
-            question_text: $("#question_text_data").val(),
-            options: $("#options").val(),
-            correct_answer: $("#correct_answer_data").val()
-        };
-
-        $.ajax({
-            url: 'call_pages/question_answer/update_question.php', // Soru güncelleme PHP dosyası
-            type: 'POST',
-            data: questionData,
-            success: function (response) {
-               //alert(response);
+                        // Form alanlarını doldur
+                        $("#question_text_data").val(question.question_text);
+                        $("#options").val(question.options.join(", "));
+                        $("#correct_answer_data").val(question.correct_answer);
+                    },
+                    error: function () {
+                        alert("An error occurred while fetching question details.");
+                    }
+                });
+            } else {
+                // Eğer hiçbir soru seçilmediyse formu temizle
+                // $("#updateForm")[0].reset();
             }
         });
-    });
+
+        // Formu gönderme işlemi
+        $("#updateForm").submit(function (e) {
+            e.preventDefault();
+
+            const questionData = {
+                id: $("#question_select").val(),
+                question_text: $("#question_text_data").val(),
+                options: $("#options").val(),
+                correct_answer: $("#correct_answer_data").val()
+            };
+
+            $.ajax({
+                url: 'call_pages/question_answer/update_question.php', // Soru güncelleme PHP dosyası
+                type: 'POST',
+                data: questionData,
+                success: function (response) {
+                    //alert(response);
+                }
+            });
+        });
     })
 </script>
 

@@ -71,7 +71,7 @@
                                         const username = data.user_name;
                                         const bolumText = data.bolumText;
 
-                                        alert(bolumText)
+                                        //alert(bolumText)
 
                                         // Kullanıcı adını ve ID'sini UI'de göster
                                         $("#username-display").text(username);
@@ -113,6 +113,13 @@
         if (data.status === "error") {
             $("#test-container").html(data.message);
         } else if (data.status === "success") {
+
+            console.log("Soru listesi:", data.data);
+        data.data.forEach((question, index) => {
+            console.log(`Soru ${index + 1}:`, question);
+            console.log("Resimler:", question.question_img);
+        });
+
             questions = data.data;
             loadQuestion(currentQuestion);
             updateProgress();
@@ -120,23 +127,46 @@
         }
     });
 }
-        function loadQuestion(index) {
-            if (index < questions.length) {
-                $("#question-text").text(questions[index].question);
-                $("#options").empty();
-                questions[index].options.forEach((option, i) => {
-                    $("#options").append(`
-                <label class="option-label" data-option-index="${i + 1}">
-                    <input type="radio" class="radio_answers" name="answer" value="${i + 1}"> ${option}
-                </label>
-            `);
-                });
-                $("#next-button").prop("disabled", true);
-                updateIndicator();
-            } else {
-                showResults(); // Test sonuçlarını göster
-            }
+function loadQuestion(index) { 
+    if (index < questions.length) {
+        let questionData = questions[index];
+        $("#question-text").text(questionData.question);
+        $("#options").empty();
+
+        // console.log(`Soru: ${questionData.question}`);
+        // console.log("Gelen resimler:", questionData.question_img);
+
+        // Eğer soru ile ilgili resimler varsa, ekleyelim
+        if (questionData.question_img && questionData.question_img.length > 0) {
+            questionData.question_img.forEach(imgUrl => {
+                let imgElement = `<img src="admin/call_pages/question_answer/${imgUrl}" class="question-img" style="max-width: 400px; display: block; margin: 10px auto;">`;
+                $("#question-text").append(imgElement);
+            });
         }
+
+        questionData.options.forEach((option, i) => {
+            let isImage = option.match(/\.(jpeg|jpg|png|gif)$/i);
+
+            let optionHtml = isImage 
+                ? `<label class="option-label">
+                      <input type="radio" class="radio_answers" name="answer" value="${i + 1}">
+                      <img src="admin/call_pages/question_answer/${option}" class="question-img" alt="Seçenek ${i + 1}" style="max-width: 400px; display: block; margin: 10px auto;">
+                   </label>`
+                : `<label class="option-label">
+                      <input type="radio" class="radio_answers" name="answer" value="${i + 1}"> ${option}
+                   </label>`;
+
+            $("#options").append(optionHtml);
+        });
+
+        $("#next-button").prop("disabled", true);
+        updateIndicator();
+    } else {
+        showResults();
+    }
+}
+
+
 
         function showResults() {
     const score = Math.round((correctAnswers / questions.length) * 100); // Skor hesaplama
@@ -144,7 +174,7 @@
     const studentName = $("#user_student_name").val(); // Öğrenci adı
     const caryekal=$("#bolumText").text();
 
-    alert(caryekal)
+    //alert(caryekal)
 
 
     // Veritabanına sonuçları kaydet
